@@ -136,29 +136,31 @@ weight = 1
 url = "posts/"
 
 [[languages.en.menu.main]]
-name = "Projects"
+name = "Algorithm-traning"
 weight = 2
+url = "algorithm-traning/"
+
+[[languages.en.menu.main]]
+name = "Projects"
+weight = 3
 url = "projects/"
 
 [[languages.en.menu.main]]
-name = "leetcode"
-weight = 4
-url = "leetcode/"
-
-[[languages.en.menu.main]]
-name = "life"
-weight = 4
-url = "life/"
-
-[[languages.en.menu.main]]
-name = "Contact me"
-weight = 3
-url = "contact/"
-
-[[languages.en.menu.main]]
-name = "about"
+name = "About"
 weight = 4
 url = "about/"
+
+#[[languages.en.menu.main]]
+#name = "life"
+#weight = 4
+#url = "life/"
+
+#[[languages.en.menu.main]]
+#name = "Contact me"
+#weight = 3
+#url = "contact/"
+
+
 
 # LANGUAGE SETTING
 #[languages.pt-br]
