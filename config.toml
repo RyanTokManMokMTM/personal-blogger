@@ -1,4 +1,4 @@
-baseURL = "http://ryantokmanmokmtm.github.io/blog/"
+baseURL = "https://ryantokmanmokmtm.github.io/personal-blogger/"
 title = "jackson.tmm"
 theme = "hugo-coder"
 languageCode = "en"
