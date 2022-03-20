@@ -162,9 +162,9 @@ func receiveMessage(conn net.Conn, ch <-chan string) {
 	}
 }
 ```
-#### broadcast function
-* Storing all chat room user to the map(temporary)
-* Listing to all available channel
+#### 廣播 function
+* 保持所有user 到全域記錄器
+* 監察所以channel
 
 ```go
 func broadcast() {
@@ -195,7 +195,7 @@ func broadcast() {
 
 }
 ```
-### Client implementation
+### 客戶端實作
 #### main function
 ```go
 func main() {
