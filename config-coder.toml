@@ -1,0 +1,194 @@
+baseURL = "https://ryantokmanmokmtm.github.io/personal-blogger/"
+title = "jackson.tmm"
+theme = "hugo-coder"
+languageCode = "en"
+defaultContentLanguage = "en"
+paginate = 20
+
+##Other Setting
+pygmentsStyle = "ch"
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+#enableEmoji = true
+# Enable Disqus comments
+# disqusShortname = "yourdiscussshortname"
+
+[params]
+author = "jackson.tmm"
+
+# license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
+description = "jackson.tmm personal's blog"
+keywords = "blog,developer,golang,program,learning"
+info = ["Trying to do better","不要為了迎合別人而勉強自己去做不喜歡的事情","因為這樣的你，不是真正地快樂"]
+avatarURL = "images/avatar.jpg"
+
+#gravatar = "john.doe@example.com"
+dateFormat = "January 2, 2006"
+since = 2022
+# Git Commit in Footer, uncomment the line below to enable it
+# commit = "https://github.com/luizdepra/hugo-coder/tree/"
+# Right To Left, shift content direction for languagues such as Arabic
+
+##OTHER APPEARR SETTING - IGNORE NOW
+#-----------------------------------------
+rtl = false
+# Specify light/dark colorscheme
+# Supported values:
+# "auto" (use preference set by browser)
+# "dark" (dark background, light foreground)
+# "light" (light background, dark foreground) (default)
+
+colorScheme = "auto"
+# Hide the toggle button, along with the associated vertical divider
+hideColorSchemeToggle = false
+# Series see also post count
+maxSeeAlsoItems = 5
+# Custom CSS
+customCSS = []
+# Custom SCSS, file path is relative to Hugo's asset folder (default: {your project root}/assets)
+customSCSS = []
+# Custom JS
+customJS = []
+
+# If you want to use fathom(https://usefathom.com) for analytics, add this section
+# [params.fathomAnalytics]
+# siteID = "ABCDE"
+# serverURL = "analytics.example.com" # Default value is cdn.usefathom.com, overwrite this if you are self-hosting
+
+# If you want to use plausible(https://plausible.io) for analytics, add this section
+# [params.plausibleAnalytics]
+# domain = "example.com"
+# serverURL = "analytics.example.com" # Default value is plausible.io, overwrite this if you are self-hosting or using a custom domain
+
+# If you want to use goatcounter(https://goatcounter.com) for analytics, add this section
+# [params.goatCounter]
+# code = "code"
+
+# If you want to use Cloudflare Web Analytics(https://cloudflare.com) for analytics, add this section
+# [params.cloudflare]
+# token = "token"
+
+# If you want to use Matomo(https://matomo.org) for analytics, add this section
+# [params.matomo]
+# siteID = "ABCDE" # Default value is "1", overwrite this if you are cloud-hosting
+# serverURL = "analytics.example.com" # For cloud-hosting, use provided URL, e.g. example.matomo.cloud
+
+# If you want to use Google Tag Manager(https://analytics.google.com/) for analytics, add this section
+# [params.googleTagManager]
+# id = "gid"
+
+# If you want to implement a Content-Security-Policy, add this section
+[params.csp]
+childsrc = ["'self'"]
+fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
+formaction = ["'self'"]
+framesrc = ["'self'"]
+imgsrc = ["'self'"]
+objectsrc = ["'none'"]
+stylesrc = [
+  "'self'",
+  "'unsafe-inline'",
+  "https://fonts.googleapis.com/",
+  "https://cdn.jsdelivr.net/"
+]
+scriptsrc = [
+  "'self'", 
+  "'unsafe-inline'", 
+  "https://www.google-analytics.com",
+  "https://cdn.jsdelivr.net/"
+]
+prefetchsrc = ["'self'"]
+# connect-src directive – defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource
+connectsrc = ["'self'", "https://www.google-analytics.com"]
+#-----------------------------------------
+[taxonomies]
+category = "categories"
+series = "series"
+tag = "tags"
+author = "authors"
+
+## Social Media Setting
+[[params.social]]
+name = "Github"
+icon = "fa fa-2x fa-github"
+weight = 1
+url = "https://github.com/RyanTokManMokMTM/"
+
+[[params.social]]
+name = "Facebook"
+icon = "fa fa-2x fa-facebook"
+weight = 2
+url = "https://www.facebook.com/karot.ka.7505/"
+
+[[params.social]]
+name = "Instagram"
+icon = "fa fa-2x fa-instagram"
+weight = 3
+url = "https://www.instagram.com/tm_m.0418/"
+
+
+[languages.en]
+languageName = ":uk:"
+
+[[languages.en.menu.main]]
+name = "Note"
+weight = 1
+url = "posts/"
+
+[[languages.en.menu.main]]
+name = "Algorithm-traning"
+weight = 2
+url = "algorithm-traning/"
+
+[[languages.en.menu.main]]
+name = "Projects"
+weight = 3
+url = "projects/"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 4
+url = "about/"
+
+#[[languages.en.menu.main]]
+#name = "life"
+#weight = 4
+#url = "life/"
+
+#[[languages.en.menu.main]]
+#name = "Contact me"
+#weight = 3
+#url = "contact/"
+
+
+
+# LANGUAGE SETTING
+#[languages.pt-br]
+#languageName = ":taiwan chinese"
+#title = "João Ninguém"
+
+#[languages.pt-br.params]
+#author = "João Ninguém"
+#info = "Full Stack DevOps e Mágico"
+#description = "Sítio pessoal de João Ninguém"
+#keywords = "blog,desenvolvedor,pessoal"
+
+#[[languages.pt-br.menu.main]]
+#name = "Sobre"
+#weight = 1
+#url = "about/"
+
+#[[languages.pt-br.menu.main]]
+#name = "Blog"
+#weight = 2
+#url = "posts/"
+
+#[[languages.pt-br.menu.main]]
+#name = "Projetos"
+#weight = 3
+#url = "projects/"
+
+#[[languages.pt-br.menu.main]]
+#name = "Contato"
+#weight = 5
+#url = "contact/"
