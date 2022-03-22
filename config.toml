@@ -62,7 +62,7 @@ disableHugoGeneratorInject = false
 
   # Home subtitle of the index page.
   #
-  homeSubtitle = "不要為了迎合別人而勉強自己去做不喜歡的事情,因為這樣的你不是真正地快樂"
+  homeSubtitle = "以前不會，不代表現在不會，現在不會，不代表將來永遠都不會"
 
   # Set a background for the homepage
   #backgroundImage = "assets/images/background.jpg"
@@ -118,8 +118,8 @@ disableHugoGeneratorInject = false
 
     topText = []
     bottomText = [
-      "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
-      "Made with &#10084; by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
+      "創造機會，不要等待機會",
+      "我命由我不由天&#10084"
     ]
 
   # Colors for favicons
