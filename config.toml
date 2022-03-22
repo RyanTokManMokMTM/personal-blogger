@@ -62,10 +62,10 @@ disableHugoGeneratorInject = false
 
   # Home subtitle of the index page.
   #
-  homeSubtitle = "不要為了迎合別人而勉強自己去做不喜歡的事情因為這樣的你，不是真正地快樂"
+  homeSubtitle = "不要為了迎合別人而勉強自己去做不喜歡的事情,因為這樣的你不是真正地快樂"
 
   # Set a background for the homepage
-  # backgroundImage = "assets/images/background.jpg"
+  #backgroundImage = "assets/images/background.jpg"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   #
