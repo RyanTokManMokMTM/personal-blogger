@@ -1,3 +1,54 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on jackson.tmm</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/</link><description>Recent content in Posts on jackson.tmm</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Tue, 22 Mar 2022 20:34:44 +0800</lastBuildDate><atom:link href="https://ryantokmanmokmtm.github.io/personal-blogger/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/hello-world/</link><pubDate>Tue, 22 Mar 2022 20:34:44 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/hello-world/</guid><description>This is my first post on my blogger&amp;hellip; More Post is comming soon&amp;hellip;</description><content type="html"><![CDATA[<h4 id="this-is-my-first-post-on-my-blogger">This is my first post on my blogger&hellip;</h4>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on jackson.tmm</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/</link><description>Recent content in Posts on jackson.tmm</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Thu, 24 Mar 2022 13:52:49 +0800</lastBuildDate><atom:link href="https://ryantokmanmokmtm.github.io/personal-blogger/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>What Is JWT(Json Web Token)</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/what-is-jwtjson-web-token/</link><pubDate>Thu, 24 Mar 2022 13:52:49 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/what-is-jwtjson-web-token/</guid><description>What is JWT(Json Web Token)? The full name of JWT is Json Web Token. Acccording to the definition, JWT is a proposed Internet standard for creating data with optinal signature and/or opntional encryption whose payload holds JSON that asserts some number of clamis.
+It&amp;rsquo;s used for identity authentication between client and the server that allows accessing resources in the server.
+The Structure of JWT JWT consists of three parts including:</description><content type="html"><![CDATA[<h2 id="what-is-jwtjson-web-token">What is JWT(Json Web Token)?</h2>
+<p>The full name of JWT is Json Web Token. Acccording to the definition, JWT is a proposed Internet standard for creating data with optinal signature and/or opntional encryption whose payload holds JSON that asserts some number of clamis.<br>
+It&rsquo;s used for <em>identity authentication</em> between client and the server that allows accessing resources in the server.</p>
+<h2 id="the-structure-of-jwt">The Structure of JWT</h2>
+<p>JWT consists of three parts including:</p>
+<ul>
+<li>Header</li>
+<li>Payload</li>
+<li>Signature</li>
+</ul>
+<h3 id="jwt-header">JWT Header</h3>
+<p>Header typically consists of two parts</p>
+<ul>
+<li>type : <em>what&rsquo;s the type of the token</em></li>
+<li>algorithm : <em>what algorithm  does this token use to sign/encrypt</em>. such as SHA256,RAS or HMAC</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;typ&#34;</span> : <span style="color:#e6db74">&#34;jwt&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;alg&#34;</span> : <span style="color:#e6db74">&#34;HS256&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This information will be encoded by <em>base64Url algorithm</em> in order to generate the JWT Header</p>
+<h3 id="jwt-payload">JWT payload</h3>
+<p>In payload  is typically  saving some users information and other useful information.</p>
+<p><em>Be carefulthat payload must not include any secret information due to base64Url algorithm is easy to be decrypted.</em></p>
+<p>JWT Payload standard claims</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;sub&#34;</span> :<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#75715e">//subject
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;aud&#34;</span> :<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#75715e">//audience
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;jti&#34;</span> :<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#75715e">//jwt id
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;iat&#34;</span> :<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#75715e">//Issued at
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;iss&#34;</span> :<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#75715e">//Issuer - who is the publisher of the jwt
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;nbf&#34;</span> :<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#75715e">//Not Before - JWT is not available before the time jwt set.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// other user information that developer set
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//for example:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">&#34;user_name&#34;</span> : <span style="color:#e6db74">&#34;jackson_tmm&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;email&#34;</span> : <span style="color:#e6db74">&#34;admin@admin.com&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This information will be encoded by <em>base64Url algorithm</em> in order to generate the JWT Payload</p>
+<h3 id="signature">Signature</h3>
+<p>The Signature is used to authenticate whether information has been modified during transmission and authenticate the sender that sent this JWT.</p>
+<h3 id="to-generate-jwt-token">To Generate JWT Token</h3>
+<p>Following this function</p>
+<pre tabindex="0"><code>HMACSHA256(
+  base64UrlEncode(header) + &#34;.&#34; +
+  base64UrlEncode(payload),
+  your-256-bit-secret)
+</code></pre><p>And these three partes will be combined by a <code>.</code> as following format: <code>xxx.yyy.zzz</code></p>
+<pre tabindex="0"><code>//exmaple
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
+</code></pre>]]></content></item><item><title>Hello World</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/hello-world/</link><pubDate>Tue, 22 Mar 2022 20:34:44 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/hello-world/</guid><description>This is my first post on my blogger&amp;hellip; More Post is comming soon&amp;hellip;</description><content type="html"><![CDATA[<h4 id="this-is-my-first-post-on-my-blogger">This is my first post on my blogger&hellip;</h4>
 <h4 id="more-post-is-comming-soon">More Post is comming soon&hellip;</h4>
 ]]></content></item></channel></rss>
