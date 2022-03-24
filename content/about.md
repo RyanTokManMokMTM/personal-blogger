@@ -8,6 +8,7 @@ author:
 ---
 
 **Sorry about my bad English :(**  
+
 ### Introduction  
 Hello, welcome to my website. This page is all about me. If you are interested in me, keep reading or
 you can contact me by the following link bellow:  
@@ -58,3 +59,7 @@ at Changgeng University in Taiwan. During my university  life, I have tried a lo
 * Learning English ASAP
 * Challenging myself
 * Focusing on Computer Science 
+---
+### My 3D modeling artwork
+![game axe](/images/axe.png)
+![human](/images/human.jpg)
