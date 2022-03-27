@@ -79,7 +79,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 ```
 
 ### How it work between Client and server
-<!-- {{< mermaid >}}
+{{< mermaid >}}
 sequenceDiagram
     Client->>Server:POST /authentication {username:xxx..}
     Note over Client,Server: User logs in
@@ -100,4 +100,4 @@ sequenceDiagram
     Server-->Client: HTTP Status:401 {"msg":xxx}
 	Note over Server,Client: Unauthorized(token error)
     end
-{{< /mermaid >}} -->
+{{< /mermaid >}} 
