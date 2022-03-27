@@ -90,7 +90,6 @@ sequenceDiagram
     Server->>Client: HTTP Status:401 {"msg":xxx}
     Note over Server,Client: Loged in Failed
     end
-    
     Client->>Server: POST /user/profile {"Authorization":"Bear token"} 
     Note over Server,Client: Get User Profile with token
     alt succeed
