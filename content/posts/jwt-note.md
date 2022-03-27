@@ -1,8 +1,9 @@
 ---
-title: "What Is JWT(Json Web Token)"
+title: "[Note]What Is JWT(Json Web Token)-EN"
 date: 2022-03-24T13:52:49+08:00
 draft: false
 toc: false
+mermaid: true
 description: This is my note about Json web token.
 tags: 
     - web develpment
@@ -12,6 +13,7 @@ categories:
     - development
     - web develpment
     - note
+    - english
 author: jackson.tmm
 ---
 
@@ -75,3 +77,27 @@ And these three partes will be combined by a `.` as following format: `xxx.yyy.z
 //exmaple
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
 ```
+
+### How it work between Client and server
+{{< mermaid >}}
+sequenceDiagram
+    Client->>Server:POST /authentication {username:xxx..}
+    Note over Client,Server: User logs in
+    alt is authenticated
+    Server->>Client:HTTP Status:200 {"token":eyxxx.xx.x}
+    Note over Server,Client: Loged in Succeed
+    else Unauthorized
+    Server->>Client: HTTP Status:401 {"msg":xxx}
+    Note over Server,Client: Loged in Failed
+    end
+    
+    Client->>Server: POST /user/profile {"Authorization":"Bear token"} 
+    Note over Server,Client: Get User Profile with token
+    alt succeed
+    Server-->Client: HTTP Status:200 {"profile":eyxxx.xx.x}
+    Note over Server,Client: Succeed and response a profile
+    else Unauthorized
+    Server-->Client: HTTP Status:401 {"msg":xxx}
+	Note over Server,Client: Unauthorized(token error)
+    end
+{{< /mermaid >}}
