@@ -79,25 +79,4 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 ```
 
 ### How it work between Client and server
-<!-- {{< mermaid >}}
-sequenceDiagram
-    Client->>Server:POST /authentication {username:xxx..}
-    Note over Client,Server: User logs in
-    alt is authenticated
-    Server->>Client:HTTP Status:200 {"token":eyxxx.xx.x}
-    Note over Server,Client: Loged in Succeed
-    else Unauthorized
-    Server->>Client: HTTP Status:401 {"msg":xxx}
-    Note over Server,Client: Loged in Failed
-    end
-    
-    Client->>Server: POST /user/profile {"Authorization":"Bear token"} 
-    Note over Server,Client: Get User Profile with token
-    alt succeed
-    Server-->Client: HTTP Status:200 {"profile":eyxxx.xx.x}
-    Note over Server,Client: Succeed and response a profile
-    else Unauthorized
-    Server-->Client: HTTP Status:401 {"msg":xxx}
-	Note over Server,Client: Unauthorized(token error)
-    end
-{{< /mermaid >}} -->
+
