@@ -23,12 +23,13 @@
 <meta itemprop=name content="[Note]What Is JWT(Json Web Token)-EN">
 <meta itemprop=description content="This is my note about Json web token."><meta itemprop=datePublished content="2022-03-24T13:52:49+08:00">
 <meta itemprop=dateModified content="2022-03-24T13:52:49+08:00">
-<meta itemprop=wordCount content="287"><meta itemprop=image content="https://ryantokmanmokmtm.github.io/personal-blogger/">
+<meta itemprop=wordCount content="361"><meta itemprop=image content="https://ryantokmanmokmtm.github.io/personal-blogger/">
 <meta itemprop=keywords content="web develpment,token,">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://ryantokmanmokmtm.github.io/personal-blogger/">
 <meta name=twitter:title content="[Note]What Is JWT(Json Web Token)-EN">
 <meta name=twitter:description content="This is my note about Json web token.">
+<script async src=https://unpkg.com/mermaid@8.2.3/dist/mermaid.min.js></script>
 <meta property="og:title" content="[Note]What Is JWT(Json Web Token)-EN">
 <meta property="og:description" content="This is my note about Json web token.">
 <meta property="og:type" content="article">
@@ -92,7 +93,27 @@ It&rsquo;s used for <em>identity authentication</em> between client and the serv
   your-256-bit-secret)
 </code></pre><p>And these three partes will be combined by a <code>.</code> as following format: <code>xxx.yyy.zzz</code></p><pre tabindex=0><code>//exmaple
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
-</code></pre><h3 id=how-it-work-between-client-and-server>How it work between Client and server</h3></div></article><hr>
+</code></pre><h3 id=how-it-work-between-client-and-server>How it work between Client and server</h3><div class=mermaid>
+sequenceDiagram
+Client->>Server:POST /authentication {username:xxx..}
+Note over Client,Server: User logs in
+alt is authenticated
+Server->>Client:HTTP Status:200 {"token":eyxxx.xx.x}
+Note over Server,Client: Loged in Succeed
+else Unauthorized
+Server->>Client: HTTP Status:401 {"msg":xxx}
+Note over Server,Client: Loged in Failed
+end
+Client->>Server: POST /user/profile {"Authorization":"Bear token"}
+Note over Server,Client: Get User Profile with token
+alt succeed
+Server-->Client: HTTP Status:200 {"profile":eyxxx.xx.x}
+Note over Server,Client: Succeed and response a profile
+else Unauthorized
+Server-->Client: HTTP Status:401 {"msg":xxx}
+Note over Server,Client: Unauthorized(token error)
+end
+</div></div></article><hr>
 <div class=post-info>
 <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg>
 <span class=tag><a href=https://ryantokmanmokmtm.github.io/personal-blogger/tags/web-develpment/>web develpment</a></span>
