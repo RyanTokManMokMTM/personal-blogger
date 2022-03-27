@@ -1,4 +1,265 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on jackson.tmm</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/</link><description>Recent content in Posts on jackson.tmm</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Thu, 24 Mar 2022 13:52:49 +0800</lastBuildDate><atom:link href="https://ryantokmanmokmtm.github.io/personal-blogger/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>What Is JWT(Json Web Token)</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/what-is-jwtjson-web-token/</link><pubDate>Thu, 24 Mar 2022 13:52:49 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/what-is-jwtjson-web-token/</guid><description>What is JWT(Json Web Token)? The full name of JWT is Json Web Token. Acccording to the definition, JWT is a proposed Internet standard for creating data with optinal signature and/or opntional encryption whose payload holds JSON that asserts some number of clamis.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on jackson.tmm</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/</link><description>Recent content in Posts on jackson.tmm</description><generator>Hugo -- gohugo.io</generator><language>ch</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Sun, 27 Mar 2022 16:55:17 +0800</lastBuildDate><atom:link href="https://ryantokmanmokmtm.github.io/personal-blogger/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>[Note]Creational-Factory</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notecreational-factory/</link><pubDate>Sun, 27 Mar 2022 16:55:17 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notecreational-factory/</guid><description>什麼是Factory(工廠)呢? 定義:建立一個接口,讓子類自己決定實現哪一個Factory,其重點是繼承了Simple Factory Patterns的優點,同時解決了它的問題
+簡單例子 注: 以及程式單純用於解釋，並不能實際執行
+可透過子類繼承Factory的抽象類自主決定生產什麼樣的Product。 生產的Product在透過里氏替換原則(Lisko Subsititution princeple)替換成繼承與Logger的子類，即可換成的需要的Logger。 class Logger{ public: virtual void wirteLog() = 0; } //Implement class DatabaseLogger: public Logger{ pubic: void wirteLog(){ //Wirte DB log message } } class FileLogger : public Logger{ public: void wirteLog(){ //Write File Log message } } //Abstruct Factory class Factory{ public: virtual Logger* createLogger() = 0; } //不可以是Static靜態，因為子類是動態實現父類的函數(static 沒有this指標) //Implement class FileLoggerFactory : public Factory{ public: Logger* createLogger(){ //init file logger //TODO init etc //create file logger Logger* logger = new FileLogger(); //TODO Create file etc return Logger; } } class DabatabaseFactory : public Factory{ public: Logger* createLogger(){ //Connect to db //Create db logger etc.</description><content type="html"><![CDATA[<h2 id="什麼是factory工廠呢">什麼是Factory(工廠)呢?</h2>
+<blockquote>
+<p>定義:建立一個接口,讓子類自己決定實現哪一個Factory,其<strong>重點是繼承了Simple Factory Patterns的優點,同時解決了它的問題</strong></p>
+</blockquote>
+<h4 id="簡單例子">簡單例子</h4>
+<p><em>注: 以及程式單純用於解釋，並不能實際執行</em></p>
+<pre tabindex="0"><code>可透過子類繼承Factory的抽象類自主決定生產什麼樣的Product。  
+生產的Product在透過里氏替換原則(Lisko Subsititution princeple)替換成繼承與Logger的子類，即可換成的需要的Logger。
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> wirteLog() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//Implement
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseLogger</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Logger{
+</span></span><span style="display:flex;"><span>    pubic:
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">void</span> wirteLog(){
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//Wirte DB log message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileLogger</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Logger{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">void</span> wirteLog(){
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//Write File Log message
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//Abstruct Factory
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Factory</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    	<span style="color:#66d9ef">virtual</span> Logger<span style="color:#f92672">*</span> createLogger() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//不可以是Static靜態，因為子類是動態實現父類的函數(static 沒有this指標)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//Implement
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileLoggerFactory</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Factory{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    	Logger<span style="color:#f92672">*</span> createLogger(){
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//init file logger 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">//TODO init etc
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//create file logger
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            Logger<span style="color:#f92672">*</span> logger <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileLogger();
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//TODO Create file etc
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Logger;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DabatabaseFactory</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Factory{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        Logger<span style="color:#f92672">*</span> createLogger(){
+</span></span><span style="display:flex;"><span>           	<span style="color:#75715e">//Connect to db
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">//Create db logger etc...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            Logger<span style="color:#f92672">*</span> logger <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatabaseLogger();
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//init this logger etc...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> logger
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//Client to use
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    Factory <span style="color:#f92672">*</span>factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileLoggerFactory();
+</span></span><span style="display:flex;"><span>    Logger <span style="color:#f92672">*</span>logger <span style="color:#f92672">=</span> factory<span style="color:#f92672">-&gt;</span>createLogger(); <span style="color:#75715e">//return the Product that it is initialized
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Logger<span style="color:#f92672">-&gt;</span>wirteLog();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//如果想讓系統有更多靈活性和課擴展性，可以透過xml來進行配置，不需透過修過client的代碼
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//只需更新xml中的設置，在代碼中新增新的Product 以及新增的Factory 並重新編譯便可
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//除了默認的設置方法外，還想透過傳入String的方法來自定義設計，例如連接要DB，文件的路徑等等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//可以透過Override Abstruct class 的func來進行設置
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    	class Factory{
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            public:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            	virtual Logger* createLogger() = 0;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            	virtual Logger* createLogger(string config) = 0;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">            	virtual Logger* createLogger(Object obj) = 0;//通過Obj裡面的成員進行設置等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">		}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h3 id="優點">優點</h3>
+<ul>
+<li>Client無需知道Object的設置的細節，也無需知道實質Object的名稱，只需通過工廠即可</li>
+<li>工廠(Factory)以及產品(Product)都是透過Polymorphism(多態)來實現，也是工廠模式的關鍵，工廠可以自主的決定要生產什麼產品，在內部進行設置產品(封裝在內部)</li>
+<li>加入新的Product時無需修改Abstract class 以及 具體的工廠和產品的類，只要擴展新增即可，符合Open-Close principle</li>
+<li>透過繼承抽象類使系統更容易擴展</li>
+</ul>
+<h3 id="缺點">缺點</h3>
+<ul>
+<li>新增產品時，要加入新的產品類以及工廠類，增加了系統的複雜度，而且需要從新編譯，增加了開銷</li>
+<li>為了擴展性,加入了抽象類，Client都使用Abstract class 進行編程，增加了系統的抽象性和理解難度</li>
+</ul>
+<hr>
+<p>參考資料:<br>
+<a href="https://blog.csdn.net/LoveLion/article/details/17517213">史上最全设计模式导学目录（完整版）</a></p>
+]]></content></item><item><title>[Note]Creational-Simple Factory</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notecreational-simple-factory/</link><pubDate>Sun, 27 Mar 2022 16:42:45 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notecreational-simple-factory/</guid><description>什麼是Simple Factory(簡單工廠)呢? 簡單而言就是: 由一個工廠來生產全部產品 定義:建立一個接口,讓子類自己決定實現哪一個Factory,重點在於工廠，透過工廠的Static method 進行生成的Object
+簡單例子 注: 以及程式單純用於解釋，並不能實際執行
+透過Factory 類的Static 方法調用方法，傳入參數生成相關的Product class Product{ public: virtual void someMethod() = 0 } class ProductA : public Product{ public: void someMethod(){ //TODO For ProductA } } class ProductB : Public Product{ public: void someMethod(){ //TODO for ProductB } } class Factory{ public: static Product* getProduct(string type){ if(type == &amp;#34;A&amp;#34;){ return new ProductA(); } else if(type == &amp;#34;B&amp;#34;){ return new ProductB(); } return null; } } int main(){ Product* A = Factory::getProduct(&amp;#34;A&amp;#34;); //get ProductA instance Product* B = Factory::getProduct(&amp;#34;B&amp;#34;); //get ProductB instance } 優點 Client可以自行決定生產哪個Product Client免除直接建立Product的責任，只僅僅消費產品 Client無需關心具體的類名與相關設置參數 缺點 Factory 的職責太重。所有的Product 都由一個Object 生產，一旦不能正常工作，便會影響整個系統的運作 如有不同的Product會增加系統中的class的數目，增加了系統複雜度以及理解難度 擴展十分困難，添加需要修改Factory的邏輯。如果生存的Product較多時，可能會使其邏輯過於複雜，不利於系統的擴展與維護 違背原則 違背了Open-Close Principe 如果有新的Product 需要生成，就必修要修改Factory類 參考資料:</description><content type="html"><![CDATA[<h2 id="什麼是simple-factory簡單工廠呢">什麼是Simple Factory(簡單工廠)呢?</h2>
+<blockquote>
+<p>簡單而言就是: 由一個工廠來生產全部產品
+定義:建立一個接口,讓子類自己決定實現哪一個Factory,重點在於工廠，透過工廠的Static method 進行生成的Object</p>
+</blockquote>
+<h4 id="簡單例子">簡單例子</h4>
+<p><em>注: 以及程式單純用於解釋，並不能實際執行</em></p>
+<pre tabindex="0"><code>透過Factory 類的Static 方法調用方法，傳入參數生成相關的Product
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Product</span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> someMethod() <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProductA</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> Product{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#66d9ef">void</span> someMethod(){
+</span></span><span style="display:flex;"><span>         <span style="color:#75715e">//TODO For ProductA
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProductB</span> <span style="color:#f92672">:</span> Public Product{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#66d9ef">void</span> someMethod(){
+</span></span><span style="display:flex;"><span>         <span style="color:#75715e">//TODO for ProductB
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Factory</span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span> 	<span style="color:#66d9ef">static</span> Product<span style="color:#f92672">*</span> getProduct(string type){
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">if</span>(type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;A&#34;</span>){
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ProductA</span>();
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span>(type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;B&#34;</span>){
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ProductB();
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">return</span> null;
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span> Product<span style="color:#f92672">*</span> A <span style="color:#f92672">=</span> Factory<span style="color:#f92672">::</span>getProduct(<span style="color:#e6db74">&#34;A&#34;</span>); <span style="color:#75715e">//get ProductA instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> Product<span style="color:#f92672">*</span> B <span style="color:#f92672">=</span> Factory<span style="color:#f92672">::</span>getProduct(<span style="color:#e6db74">&#34;B&#34;</span>); <span style="color:#75715e">//get ProductB instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><hr>
+<h3 id="優點">優點</h3>
+<ul>
+<li>Client可以自行決定生產哪個Product</li>
+<li>Client免除直接建立Product的責任，只僅僅<em>消費</em>產品</li>
+<li>Client無需關心具體的類名與相關設置參數</li>
+</ul>
+<h3 id="缺點">缺點</h3>
+<ul>
+<li>Factory 的職責太重。所有的Product 都由一個Object 生產，一旦不能正常工作，便會影響整個系統的運作</li>
+<li>如有不同的Product會增加系統中的class的數目，增加了系統複雜度以及理解難度</li>
+<li>擴展十分困難，添加需要修改Factory的邏輯。如果生存的Product較多時，可能會使其邏輯過於複雜，不利於系統的擴展與維護</li>
+</ul>
+<h3 id="違背原則">違背原則</h3>
+<ul>
+<li><em>違背了Open-Close Principe</em>
+<ul>
+<li>如果有新的Product 需要生成，就必修要修改Factory類</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>參考資料:<br>
+<a href="https://blog.csdn.net/LoveLion/article/details/17517213">史上最全设计模式导学目录（完整版）</a></p>
+]]></content></item><item><title>[Note]Design Pattern Princeple</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notedesign-pattern-princeple/</link><pubDate>Sun, 27 Mar 2022 16:18:55 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notedesign-pattern-princeple/</guid><description>什麼是Design Pattern(設計模式)呢? 設計模式(Design Pattern) 是對軟體設計中普遍存在（反覆出現）的各種問題，所提出的解決方案。用於描述在各種不同的情況下，如何解決問題的一種方案
+OOP設計模式通常以類別或者物件來描述關係和相互的作用(不涉及完成應用的特定object)。 設計模式能使不穩定依賴於相對穩定、具體依賴於相對抽象，避免會引起麻煩的緊耦合。
+Design Pattern 有什麼原則呢? 原則(Princeple) 定義(Def) 單一職責原則(Single Responsibility Principle) 一個類只負責一個功能領域中的相應的原則 開閉原則(Open-Closed Principle) 對擴展開發(可以繼承擴展)，對修改關閉(不能修改BaseClass) 里氏替換原則(Liskov Substitution Principe) 所有引用於Base Class 的地方 都能夠透明的使用其子類的對象(以子類來替換父類) 依賴倒轉原則(Dependencie Inversion Principe 細節應依賴於抽象(Abstract),抽象(Abstract)不應該依賴與細節。(也就是細節由子類來實現，父類負責定義) 接口隔離原則(Interface Segregation Principle) 使用多個專用的接口(Interface),而不是使用單一的總接口.(能避免Client實現一些沒必要的功能) 合成複用原則(Composition Reuse Principle) 盡量使用Object Composition(在要使用的Object的地方把用到的Object注入),而不是繼承能達到目的.(減少依賴) 迪米特法則(Law of Demeter) 一個軟件實體應盡可能地與其他實體發生互相作用.(就是不用跟不是朋友(注入)的Object 直接通訊) Design Pattern 分成哪幾種呢?</description><content type="html"><![CDATA[<h2 id="什麼是design-pattern設計模式呢">什麼是Design Pattern(設計模式)呢?</h2>
+<blockquote>
+<p>設計模式(Design Pattern) 是對軟體設計中普遍存在（反覆出現）的各種問題，所提出的解決方案。用於描述在各種不同的情況下，<strong>如何解決問題的一種方案</strong></p>
+</blockquote>
+<blockquote>
+<p>OOP設計模式通常以類別或者物件來描述關係和相互的作用(不涉及完成應用的特定object)。
+設計模式能使不穩定依賴於相對穩定、具體依賴於相對抽象，<strong>避免會引起麻煩的緊耦合</strong>。</p>
+</blockquote>
+<h2 id="design-pattern-有什麼原則呢">Design Pattern 有什麼原則呢?</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">原則(Princeple)</th>
+<th style="text-align:left">定義(Def)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>單一職責原則(Single Responsibility Principle)</strong></td>
+<td style="text-align:left">一個類只負責一個功能領域中的相應的原則</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>開閉原則(Open-Closed Principle)</strong></td>
+<td style="text-align:left">對擴展開發(可以繼承擴展)，對修改關閉(不能修改BaseClass)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>里氏替換原則(Liskov Substitution Principe)</strong></td>
+<td style="text-align:left">所有引用於Base Class 的地方 都能夠透明的使用其子類的對象(以子類來替換父類)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>依賴倒轉原則(Dependencie Inversion Principe</strong></td>
+<td style="text-align:left">細節應依賴於抽象(Abstract),抽象(Abstract)不應該依賴與細節。(也就是細節由子類來實現，父類負責定義)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>接口隔離原則(Interface Segregation Principle)</strong></td>
+<td style="text-align:left">使用多個專用的接口(Interface),而不是使用單一的總接口.(能避免Client實現一些沒必要的功能)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>合成複用原則(Composition Reuse Principle)</strong></td>
+<td style="text-align:left">盡量使用Object Composition(在要使用的Object的地方把用到的Object注入),而不是繼承能達到目的.(減少依賴)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>迪米特法則(Law of Demeter)</strong></td>
+<td style="text-align:left">一個軟件實體應盡可能地與其他實體發生互相作用.(就是不用跟不是朋友(注入)的Object 直接通訊)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design-pattern-分成哪幾種呢">Design Pattern 分成哪幾種呢?</h2>
+<p>主要分成3大類，一共23個</p>
+<ul>
+<li>創建型模式(6個)</li>
+<li>結構型模式(7個)</li>
+<li>行為型模式(11個)</li>
+</ul>
+<h4 id="創建型模式6個">創建型模式(6個)</h4>
+<ol>
+<li><a href="/posts/2022/03/notecreational-simple-factory">簡單工廠模式(Simple Factory Pattern)</a></li>
+<li><a href="/posts/2022/03/notecreational-factory//">工廠模式(Factory Pattern)</a></li>
+<li>抽象工廠模式(Abstract Factory Pattern)</li>
+<li>單例模式(Singleton Pattern)</li>
+<li>原形模式(Prototype Pattern)</li>
+<li>建立者模式(Builder Pattern)</li>
+</ol>
+<h4 id="結構型模式7個">結構型模式(7個)</h4>
+<ol>
+<li>適配器模式(Adapter Pattern)</li>
+<li>橋接模式(Bridge Pattern)</li>
+<li>組合模式(Composite Pattern)</li>
+<li>裝飾模式(Decorator Pattern)</li>
+<li>外觀模式(Facade Pattern)</li>
+<li>享元模式(FlayWeight Pattern)</li>
+<li>代理模式(Proxy Pattern)</li>
+</ol>
+<h4 id="行為型模式11個">行為型模式(11個)</h4>
+<ol>
+<li>職責鏈模式(Chain of Responsibility Pattern)</li>
+<li>命令模式(Command Pattern)</li>
+<li>解釋器模式(Interpreter Pattern)</li>
+<li>迭代器模式(Iterator Pattern)</li>
+<li>中介者模式(Mediator Pattern)</li>
+<li>備忘錄模式(Memento Pattern)</li>
+<li>觀察者模式(Observer Pattern)</li>
+<li>狀態模式(State Pattern)</li>
+<li>策略模式(Strategy Pattern)</li>
+<li>板塊模式(Template Method Pattern)</li>
+<li>訪問者模式(Visitor Pattern)</li>
+</ol>
+<hr>
+<p>參考資料:<br>
+<a href="https://blog.csdn.net/LoveLion/article/details/17517213">史上最全设计模式导学目录（完整版）</a></p>
+]]></content></item><item><title>[Note]What Is JWT(Json Web Token)-EN</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notewhat-is-jwtjson-web-token-en/</link><pubDate>Thu, 24 Mar 2022 13:52:49 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/notewhat-is-jwtjson-web-token-en/</guid><description>What is JWT(Json Web Token)? The full name of JWT is Json Web Token. Acccording to the definition, JWT is a proposed Internet standard for creating data with optinal signature and/or opntional encryption whose payload holds JSON that asserts some number of clamis.
 It&amp;rsquo;s used for identity authentication between client and the server that allows accessing resources in the server.
 The Structure of JWT JWT consists of three parts including:</description><content type="html"><![CDATA[<h2 id="what-is-jwtjson-web-token">What is JWT(Json Web Token)?</h2>
 <p>The full name of JWT is Json Web Token. Acccording to the definition, JWT is a proposed Internet standard for creating data with optinal signature and/or opntional encryption whose payload holds JSON that asserts some number of clamis.<br>
@@ -49,6 +310,5 @@ It&rsquo;s used for <em>identity authentication</em> between client and the serv
 </code></pre><p>And these three partes will be combined by a <code>.</code> as following format: <code>xxx.yyy.zzz</code></p>
 <pre tabindex="0"><code>//exmaple
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
-</code></pre>]]></content></item><item><title>Hello World</title><link>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/hello-world/</link><pubDate>Tue, 22 Mar 2022 20:34:44 +0800</pubDate><guid>https://ryantokmanmokmtm.github.io/personal-blogger/posts/2022/03/hello-world/</guid><description>This is my first post on my blogger&amp;hellip; More Post is comming soon&amp;hellip;</description><content type="html"><![CDATA[<h4 id="this-is-my-first-post-on-my-blogger">This is my first post on my blogger&hellip;</h4>
-<h4 id="more-post-is-comming-soon">More Post is comming soon&hellip;</h4>
+</code></pre><h3 id="how-it-work-between-client-and-server">How it work between Client and server</h3>
 ]]></content></item></channel></rss>
