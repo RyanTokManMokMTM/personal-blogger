@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=content/en>
+<!doctype html><html lang=en dir=zh>
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
@@ -8,15 +8,16 @@
 <meta name=author content="Elkan.Li">
 <meta property="og:title" content="Categories">
 <meta property="og:site_name" content="Loving life and dreams.">
-<meta property="og:image" content="/img/author.jpg">
+<meta property="og:image" content="/images/avatar.jpg">
 <meta name=title content="Categories - Loving life and dreams.">
 <meta name=description content="Weclome to Elkan's blog site that who is best on program develop, pre-sales and big data.">
 <link rel="shortcut icon" href=/img/favicon.ico>
-<link rel=apple-touch-icon href=/img/apple-touch-icon.png>
-<link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.png>
+<link rel=apple-touch-icon href=/images/avatar.jpg>
+<link rel=apple-touch-icon-precomposed href=/images/avatar.jpg>
 <link href=//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css rel=stylesheet type=text/css>
 <link href=/css/main.css rel=stylesheet type=text/css>
 <link href=/css/syntax.css rel=stylesheet type=text/css>
+<script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script> <script>mermaid.initialize({startOnLoad:!0,securityLevel:"loose"})</script>
 </head><body itemscope itemtype=http://schema.org/WebPage lang=zh-hans>
 <div class="container one-collumn sidebar-position-left">
 <div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader>
@@ -29,11 +30,13 @@
 </div></div><div class=site-meta>
 <div class=multi-lang-switch>
 <i class="fa fa-fw fa-language" style=margin-right:5px></i>
-<a class=lang-link id=zh-cn href=https://ryantokmanmokmtm.github.io/personal-blogger/categories/>中文</a>
+<a class=lang-link id=zh-tw href=http://localhost:1313/categories/>中文</a>
+<a class=lang-link id=en href=#></a>
 <span class=lang-line> / </span>
-<a class=lang-link id=en href=#>English</a>
+<a class=lang-link id=zh-cn href=http://localhost:1313/zh-cn/categories/></a>
+<span class=lang-line> / </span>
 </div><div class=custom-logo-site-title>
-<a href=/personal-blogger/en/ class=brand rel=start>
+<a href=/en/ class=brand rel=start>
 <span class=logo-line-before><i></i></span>
 <span class=site-title>Loving life and dreams.</span>
 <span class=logo-line-after><i></i></span>
@@ -44,20 +47,16 @@
 </div></div></div><nav class=site-nav>
 <ul id=menu class=menu>
 <li class=menu-item>
-<a href=/personal-blogger/en/personal-blogger/ rel=section>
+<a href=/en rel=section>
 <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home
 </a>
 </li><li class=menu-item>
-<a href=/personal-blogger/en/post rel=section>
+<a href=/en/post rel=section>
 <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archive
 </a>
 </li><li class=menu-item>
-<a href=/personal-blogger/en/about.html rel=section>
+<a href=/en/about.html rel=section>
 <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About
-</a>
-</li><li class=menu-item>
-<a href=/personal-blogger/en/404.html rel=section>
-<i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>Page404
 </a>
 </li><li class="menu-item menu-item-search">
 <a href=javascript:; class=popup-trigger> <i class="menu-item-icon fa fa-search fa-fw"></i> <br> Search</a>
@@ -75,14 +74,35 @@
 <div id=posts class=posts-expand>
 <div class=category-all-page>
 <div class=category-all-title>
-Total <span class=span-stats-tip>2 </span> categories
+Total <span class=span-stats-tip>9 </span> categories
 </div><div class=category-all>
 <ul class=category-list>
 <li class=category-list-item>
-<a class=category-list-link href=/personal-blogger/en/categories/syntax>syntax</a>
+<a class=category-list-link href=/en/categories/apple>apple</a>
 <span class=category-list-count><sup>1</sup></span>
 </li><li class=category-list-item>
-<a class=category-list-link href=/personal-blogger/en/categories/themes>themes</a>
+<a class=category-list-link href=/en/categories/backend>backend</a>
+<span class=category-list-count><sup>1</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/design-pattern>design-pattern</a>
+<span class=category-list-count><sup>3</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/development>development</a>
+<span class=category-list-count><sup>2</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/english>english</a>
+<span class=category-list-count><sup>1</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/note>note</a>
+<span class=category-list-count><sup>1</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/programming>programming</a>
+<span class=category-list-count><sup>3</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/project>project</a>
+<span class=category-list-count><sup>1</sup></span>
+</li><li class=category-list-item>
+<a class=category-list-link href=/en/categories/web-develpment>web-develpment</a>
 <span class=category-list-count><sup>1</sup></span>
 </li></ul></div></div></div></div></div><div class=sidebar-toggle>
 <div class=sidebar-toggle-line-wrap>
@@ -98,22 +118,22 @@ Total <span class=span-stats-tip>2 </span> categories
 Never forget your dreams！
 </p></div><nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
-<a href=/personal-blogger/en/post/>
-<span class=site-state-item-count>5</span>
+<a href=/en/post/>
+<span class=site-state-item-count>0</span>
 <span class=site-state-item-name>Blogs</span>
 </a>
 </div><div class="site-state-item site-state-categories">
-<a href=/personal-blogger/en/categories/>
-<span class=site-state-item-count>2</span>
+<a href=/en/categories/>
+<span class=site-state-item-count>9</span>
 <span class=site-state-item-name>Categories</span>
 </a>
 </div><div class="site-state-item site-state-tags">
-<a href=/personal-blogger/en/tags/>
-<span class=site-state-item-count>7</span>
+<a href=/en/tags/>
+<span class=site-state-item-count>8</span>
 <span class=site-state-item-name>Tags</span>
 </a>
 </div></nav><div class="feed-link motion-element">
-<a href=/personal-blogger/en/personal-blogger/en/categories/index.xml rel=alternate type=application/rss+xml target=_blank>
+<a href=/en/categories/index.xml rel=alternate type=application/rss+xml target=_blank>
 <i class="fa fa-rss"></i>
 RSS
 </a>
@@ -149,24 +169,26 @@ Links
 TagCloud
 </div><ul class=tagcloud-of-blogroll-list>
 <li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/markdown>Markdown</a>
+<a href=/en/tags/learning>Learning</a>
 </li><li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/css>Css</a>
+<a href=/en/tags/creational>Creational</a>
 </li><li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/emoji>Emoji</a>
+<a href=/en/tags/app-dev>App dev</a>
 </li><li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/html>HTML</a>
+<a href=/en/tags/emoji>Emoji</a>
 </li><li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/privacy>Privacy</a>
+<a href=/en/tags/ios-app>Ios app</a>
 </li><li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/shortcodes>Shortcodes</a>
+<a href=/en/tags/note>Note</a>
 </li><li class=tagcloud-of-blogroll-item>
-<a href=/personal-blogger/en/tags/text>Text</a>
+<a href=/en/tags/token>Token</a>
+</li><li class=tagcloud-of-blogroll-item>
+<a href=/en/tags/web-develpment>Web develpment</a>
 </li></ul></div></section></div></aside></div></main><footer id=footer class=footer>
 <div class=footer-inner>
 <div class=copyright>
 <span class=copyright-year>
-&copy; 2010 - 2022
+&copy; 2022 - 2022
 </span>
 <span class=with-love><i class="fa fa-heart"></i></span>
 <span class=copyright-author>Loving life and dreams.</span>
@@ -180,25 +202,6 @@ Theme by - <a class=powered-link href=//github.com/elkan1788/hugo-theme-next tar
 </a>
 </span>
 </div><div class=vistor-info>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<span class=site-uv>
-<i class="fa fa-user"></i>
-<span class=busuanzi-value id=busuanzi_value_site_uv></span>
-</span>
-<span class=separator-line>/</span>
-<span class=site-pv>
-<i class="fa fa-eye"></i>
-<span class=busuanzi-value id=busuanzi_value_site_pv></span>
-</span>
-</div><div class=license-info>
-<span class=storage-info>
-Storage by
-<a href=https://www.ucloud.cn/ style=font-weight:700 target=_blank>UCloud Storage</a>
-</span>
-<span class=separator-line>/</span>
-<span class=license-num>
-<a href=http://beian.miit.gov.cn target=_blank>ICP.NO 18047355</a>
-</span>
 </div></div></footer><div class=back-to-top>
 <i class="fa fa-arrow-up"></i>
 <span id=scrollpercent><span>0</span>%</span>
